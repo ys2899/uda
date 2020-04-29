@@ -23,7 +23,7 @@ import collections
 import unicodedata
 import six
 import tensorflow as tf
-
+import pdb
 
 def open_reader(input_file, encoding="utf-8"):
   """Opens a text file for reading."""
@@ -36,6 +36,7 @@ def load_vocab(vocab_file):
   index = 0
   with open_reader(vocab_file) as reader:
     while True:
+      pdb.set_trace()
       token = reader.readline()
       if not token:
         break
