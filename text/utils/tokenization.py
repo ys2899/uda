@@ -27,6 +27,7 @@ import pdb
 
 def open_reader(input_file, encoding="utf-8"):
   """Opens a text file for reading."""
+  pdb.set_trace()
   return codecs.getreader(encoding)(tf.gfile.GFile(input_file, "r"))
 
 
