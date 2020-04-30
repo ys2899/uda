@@ -208,8 +208,7 @@ class WordpieceTokenizer(object):
     text = _convert_to_unicode_or_throw(text)
 
     output_tokens = []
-    for token in whitespace_tokenize(text):
-      pdb.set_trace()
+    for token in whitespace_tokenize(printable_text):
       chars = list(token)
       if len(chars) > self.max_input_chars_per_word:
         output_tokens.append(self.unk_token)
