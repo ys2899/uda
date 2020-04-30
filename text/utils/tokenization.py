@@ -53,10 +53,11 @@ def load_vocab(vocab_file):
     token = reader.readline()
     if not token:
       break
-    pdb.set_trace()
+    # pdb.set_trace()
     token = token.strip()
     vocab[token] = index
     index += 1
+  pdb.set_trace()
   reader.close()
 
 
