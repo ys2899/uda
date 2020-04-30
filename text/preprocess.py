@@ -430,6 +430,7 @@ def proc_and_save_sup_data(
     tokenizer, max_seq_length, trunc_keep_right,
     worker_id, replicas, sup_size):
   tf.logging.info("getting examples")
+  pdb.set_trace()
   if sub_set == "train":
     examples = processor.get_train_examples(raw_data_dir)
   elif sub_set == "dev":
@@ -546,10 +547,6 @@ def main(_):
     sup_out_dir = FLAGS.output_base_dir
     tf.logging.info("Create sup. data: subset {} => {}".format(
         FLAGS.sub_set, sup_out_dir))
-
-
-    pdb.set_trace()
-
     proc_and_save_sup_data(
         processor, FLAGS.sub_set, FLAGS.raw_data_dir, sup_out_dir,
         tokenizer, FLAGS.max_seq_length, FLAGS.trunc_keep_right,
