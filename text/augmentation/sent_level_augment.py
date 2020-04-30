@@ -29,6 +29,7 @@ import tensorflow as tf
 
 from augmentation import word_level_augment
 from utils import raw_data_utils
+import six
 
 
 FLAGS = flags.FLAGS
@@ -117,7 +118,7 @@ def back_translation(examples, aug_ops, sub_set, aug_copy_num,
         text_b=text_b,
         label=ori_example.label)
     aug_examples += [example]
-    if np.random.random() < 0.0001:
+    if six.PY2 and np.random.random() < 0.0001:
       tf.logging.info("\tori:\n\t\t{:s}\n\t\t{:s}\n\t\t{:s}\n".format(
           ori_example.text_a, ori_example.text_b, ori_example.label))
       tf.logging.info("\tnew:\n\t\t{:s}\n\t\t{:s}\n\t\t{:s}\n".format(
