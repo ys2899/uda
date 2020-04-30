@@ -311,7 +311,7 @@ def get_activation(activation_string):
   """
 
   # We assume that anything that's not a string is already an activation
-  # function, so we just return it.
+  # function, so we just return it. 
   if six.PY2 and not isinstance(activation_string, (str, unicode)):
     return activation_string
   elif six.PY3 and not isinstance(activation_string, str):
