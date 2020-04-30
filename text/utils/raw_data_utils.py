@@ -44,6 +44,7 @@ class InputExample(object):
       label: (Optional) string. The label of the example. This should be
         specified for train and dev examples, but not for test examples.
     """
+    ## The unique id
     self.guid = guid
     self.text_a = text_a
     self.text_b = text_b
