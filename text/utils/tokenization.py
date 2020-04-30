@@ -44,7 +44,6 @@ def load_vocab(vocab_file):
   #     token = token.strip()
   #     vocab[token] = index
   #     index += 1
-  pdb.set_trace()
   if six.PY2:
     reader = open_reader(vocab_file)
   else:
@@ -54,6 +53,7 @@ def load_vocab(vocab_file):
     token = reader.readline()
     if not token:
       break
+    pdb.set_trace()
     token = token.strip()
     vocab[token] = index
     index += 1
