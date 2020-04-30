@@ -285,7 +285,7 @@ def _convert_to_unicode_or_throw(text):
   """Converts `text` to Unicode (if it's not already), assuming utf-8 input."""
   if six.PY2:
     if isinstance(text, str):
-      pdb.set_trace()
+      # pdb.set_trace()
       text = text.decode("utf-8", "ignore")
     if not isinstance(text, unicode):
       raise ValueError("`text` must be of type `unicode` or `str`, but is "
