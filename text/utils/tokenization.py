@@ -73,6 +73,7 @@ def convert_tokens_to_ids(vocab, tokens):
 
 def whitespace_tokenize(text):
   """Runs basic whitespace cleaning and splitting on a peice of text."""
+  pdb.set_trace()
   text = text.strip()
   if not text:
     return []
