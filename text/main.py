@@ -27,8 +27,6 @@ from bert import modeling
 from utils import proc_data_utils
 from utils import raw_data_utils
 
-import pdb
-
 
 flags = tf.flags
 FLAGS = flags.FLAGS
@@ -175,8 +173,6 @@ flags.DEFINE_float(
 
 def main(_):
 
-  pdb.set_trace()
-
   tf.logging.set_verbosity(tf.logging.INFO)
 
   processor = raw_data_utils.get_processor(FLAGS.task_name)
@@ -190,6 +186,7 @@ def main(_):
   tf.gfile.MakeDirs(FLAGS.model_dir)
 
   flags_dict = tf.app.flags.FLAGS.flag_values_dict()
+
   with tf.gfile.Open(os.path.join(FLAGS.model_dir, "FLAGS.json"), "w") as ouf:
     json.dump(flags_dict, ouf)
 
@@ -197,11 +194,15 @@ def main(_):
       FLAGS.num_warmup_steps, FLAGS.num_train_steps))
 
   save_checkpoints_steps = FLAGS.num_train_steps // FLAGS.save_checkpoints_num
+
   tf.logging.info("setting save checkpoints steps to {:d}".format(
       save_checkpoints_steps))
 
   FLAGS.iterations_per_loop = min(save_checkpoints_steps,
                                   FLAGS.iterations_per_loop)
+
+  pdb.set_trace()
+
   if FLAGS.use_tpu and FLAGS.tpu_name:
     tpu_cluster_resolver = tf.contrib.cluster_resolver.TPUClusterResolver(
         FLAGS.tpu_name, zone=FLAGS.tpu_zone, project=FLAGS.gcp_project)
