@@ -473,9 +473,7 @@ def embedding_postprocessor(input_tensor,
                      (seq_length, max_position_embeddings))
 
   output = input_tensor
-
-  pdb.set_trace()
-
+  # pdb.set_trace()
   if use_token_type:
     if token_type_ids is None:
       raise ValueError("`token_type_ids` must be specified if"
@@ -491,6 +489,10 @@ def embedding_postprocessor(input_tensor,
     token_type_embeddings = tf.matmul(one_hot_ids, token_type_table)
     token_type_embeddings = tf.reshape(token_type_embeddings,
                                        [batch_size, seq_length, width])
+
+    # Here the token embedding is also with the width of 768
+    # So that we can add them together.
+
     output += token_type_embeddings
 
   if use_position_embeddings:
@@ -507,6 +509,12 @@ def embedding_postprocessor(input_tensor,
     # for position [0, 1, 2, ..., max_position_embeddings-1], and the current
     # sequence has positions [0, 1, 2, ... seq_length-1], so we can just
     # perform a slice.
+
+    # After reading the instructions before this line, we have an impression 
+    # that the strength of the Bert model is that it also learnt the embedding
+    # for the sequence to see which words belong to which model. This is a 
+    # very important work of them. This has to be confirmed.
+
     position_embeddings = tf.slice(full_position_embeddings, [0, 0],
                                    [seq_length, -1])
     num_dims = len(output.shape.as_list())

@@ -26,6 +26,9 @@ from bert import modeling
 from bert import optimization
 from utils import tpu_utils
 
+import pdb
+
+
 flags = tf.flags
 FLAGS = flags.FLAGS
 
@@ -240,6 +243,8 @@ def model_fn_builder(
     ##### Classification objective
     label_ids = features["label_ids"]
     label_ids = tf.reshape(label_ids, [-1])
+
+    pdb.set_trace()
 
     if unsup_ratio > 0 and "ori_input_ids" in features:
       input_ids = tf.concat([
