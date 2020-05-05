@@ -27,6 +27,7 @@ from bert import modeling
 from utils import proc_data_utils
 from utils import raw_data_utils
 
+import pdb
 
 flags = tf.flags
 FLAGS = flags.FLAGS
