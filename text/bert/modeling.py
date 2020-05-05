@@ -144,6 +144,8 @@ def bert_embedding(config,
           word_embedding_name="word_embeddings",
           use_one_hot_embeddings=use_one_hot_embeddings)
 
+      pdb.set_trace()
+
       # Add positional embeddings and token type embeddings, then layer
       # normalize and perform dropout.
       embedding_output = embedding_postprocessor(
@@ -399,7 +401,7 @@ def embedding_lookup(input_ids,
   # If the input is a 2D tensor of shape [batch_size, seq_length], we
   # reshape to [batch_size, seq_length, 1].
   if input_ids.shape.ndims == 2:
-    pdb.set_trace()
+    # pdb.set_trace()
     input_ids = tf.expand_dims(input_ids, axis=[-1])
 
   embedding_table = tf.get_variable(
@@ -418,6 +420,9 @@ def embedding_lookup(input_ids,
 
   output = tf.reshape(output,
                       input_shape[0:-1] + [input_shape[-1] * embedding_size])
+
+  # output looks like [32, 512, 768]
+
   return (output, embedding_table)
 
 
