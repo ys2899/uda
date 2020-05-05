@@ -143,8 +143,7 @@ def bert_embedding(config,
           initializer_range=config.initializer_range,
           word_embedding_name="word_embeddings",
           use_one_hot_embeddings=use_one_hot_embeddings)
-
-      pdb.set_trace()
+      # Embedding output <tf.Tensor 'bert/embeddings/Reshape_1:0' shape=(32, 512, 768) dtype=float32>
 
       # Add positional embeddings and token type embeddings, then layer
       # normalize and perform dropout.
@@ -474,6 +473,8 @@ def embedding_postprocessor(input_tensor,
                      (seq_length, max_position_embeddings))
 
   output = input_tensor
+
+  pdb.set_trace()
 
   if use_token_type:
     if token_type_ids is None:
