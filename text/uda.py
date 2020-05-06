@@ -112,6 +112,8 @@ def create_model(
       token_type_ids=input_type_ids,
       use_one_hot_embeddings=use_one_hot_embeddings)
 
+  # Input mask is still a problem.
+
   clas_logits = hidden_to_logits(
       hidden=pooled,
       is_training=is_training,
@@ -130,6 +132,8 @@ def create_model(
     loss_mask = tf.ones_like(per_example_loss, dtype=per_example_loss.dtype)
     correct_label_probs = tf.reduce_sum(
         one_hot_labels * tf.exp(sup_log_probs), axis=-1)
+
+    pdb.set_trace()
 
     if tsa:
       tsa_start = 1. / num_labels
@@ -243,14 +247,16 @@ def model_fn_builder(
     ##### Classification objective
     label_ids = features["label_ids"]
     label_ids = tf.reshape(label_ids, [-1])
-
-    pdb.set_trace()
-
+    # pdb.set_trace()
     if unsup_ratio > 0 and "ori_input_ids" in features:
+
       input_ids = tf.concat([
           features["input_ids"],
           features["ori_input_ids"],
           features["aug_input_ids"]], 0)
+
+      # They put all the features for original and augmented together
+
       input_mask = tf.concat([
           features["input_mask"],
           features["ori_input_mask"],
