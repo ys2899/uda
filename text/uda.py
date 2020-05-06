@@ -113,7 +113,7 @@ def create_model(
       use_one_hot_embeddings=use_one_hot_embeddings)
 
   # Input mask is still a problem.
-
+  
   clas_logits = hidden_to_logits(
       hidden=pooled,
       is_training=is_training,
@@ -132,8 +132,6 @@ def create_model(
     loss_mask = tf.ones_like(per_example_loss, dtype=per_example_loss.dtype)
     correct_label_probs = tf.reduce_sum(
         one_hot_labels * tf.exp(sup_log_probs), axis=-1)
-
-    pdb.set_trace()
 
     if tsa:
       tsa_start = 1. / num_labels

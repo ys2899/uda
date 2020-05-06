@@ -202,7 +202,7 @@ def main(_):
   FLAGS.iterations_per_loop = min(save_checkpoints_steps,
                                   FLAGS.iterations_per_loop)
 
-  pdb.set_trace()
+  # pdb.set_trace()
 
   if FLAGS.use_tpu and FLAGS.tpu_name:
     tpu_cluster_resolver = tf.contrib.cluster_resolver.TPUClusterResolver(
