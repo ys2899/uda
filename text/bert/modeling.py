@@ -677,7 +677,7 @@ def attention_layer(from_tensor,
   from_tensor_2d = reshape_to_matrix(from_tensor)
   to_tensor_2d = reshape_to_matrix(to_tensor)
 
-  pdb.set_trace()
+
 
   # `query_layer` = [B*F, N*H]
   query_layer = tf.layers.dense(
@@ -703,6 +703,7 @@ def attention_layer(from_tensor,
       name="value",
       kernel_initializer=create_initializer(initializer_range))
 
+
   # `query_layer` = [B, N, F, H]
   query_layer = transpose_for_scores(query_layer, batch_size,
                                      num_attention_heads, from_seq_length,
@@ -712,13 +713,16 @@ def attention_layer(from_tensor,
   key_layer = transpose_for_scores(key_layer, batch_size, num_attention_heads,
                                    to_seq_length, size_per_head)
 
+
   # Take the dot product between "query" and "key" to get the raw
   # attention scores.
   # `attention_scores` = [B, N, F, T]
   attention_scores = tf.matmul(query_layer, key_layer, transpose_b=True)
+
+  # This attention score is in equation no.1 of https://arxiv.org/pdf/1706.03762.pdf
   attention_scores = tf.multiply(attention_scores,
                                  1.0 / math.sqrt(float(size_per_head)))
-
+  # pdb.set_trace()
   if attention_mask is not None:
     # `attention_mask` = [B, 1, F, T]
     attention_mask = tf.expand_dims(attention_mask, axis=[1])
