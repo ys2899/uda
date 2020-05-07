@@ -554,8 +554,7 @@ def create_attention_mask_from_input_mask(from_tensor, to_mask):
   to_mask = tf.cast(
       tf.reshape(to_mask, [batch_size, 1, to_seq_length]), tf.float32)
 
-
-  pdb.set_trace()
+  # pdb.set_trace()
 
   # We don't assume that `from_tensor` is a mask (although it could be). We
   # don't actually care if we attend *from* padding tokens (only *to* padding)
@@ -567,7 +566,8 @@ def create_attention_mask_from_input_mask(from_tensor, to_mask):
 
   # Here we broadcast along two dimensions to create the mask.
   mask = broadcast_ones * to_mask
-
+  # Just broadcast the to_mask.
+  # mask is like <tf.Tensor 'bert_1/encoder/mul:0' shape=(32, 512, 512) dtype=float32>
   return mask
 
 
@@ -676,6 +676,8 @@ def attention_layer(from_tensor,
 
   from_tensor_2d = reshape_to_matrix(from_tensor)
   to_tensor_2d = reshape_to_matrix(to_tensor)
+
+  pdb.set_trace()
 
   # `query_layer` = [B*F, N*H]
   query_layer = tf.layers.dense(
@@ -824,6 +826,8 @@ def transformer_model(input_tensor,
   batch_size = input_shape[0]
   seq_length = input_shape[1]
   input_width = input_shape[2]
+
+
 
   # The Transformer performs sum residuals on all layers so the input needs
   # to be the same as the hidden size.
