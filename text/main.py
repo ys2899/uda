@@ -142,7 +142,7 @@ flags.DEFINE_float(
 
 ##### Training hyper-parameters
 flags.DEFINE_integer(
-    "train_batch_size", 32,
+    "train_batch_size", 4,
     help="Batch size for the supervised objective.")
 flags.DEFINE_integer(
     "eval_batch_size", 8,
