@@ -196,7 +196,7 @@ def bert_attention(config,
           attention_probs_dropout_prob=config.attention_probs_dropout_prob,
           initializer_range=config.initializer_range,
           do_return_all_layers=True)
-
+      pdb.set_trace()
     sequence_output = all_encoder_layers[-1]
 
     return sequence_output
@@ -863,7 +863,7 @@ def transformer_model(input_tensor,
               batch_size=batch_size,
               from_seq_length=seq_length,
               to_seq_length=seq_length)
-          pdb.set_trace()
+          # pdb.set_trace()
           attention_heads.append(attention_head)
 
         attention_output = None
@@ -885,6 +885,9 @@ def transformer_model(input_tensor,
           attention_output = layer_norm(attention_output + layer_input)
 
       # The activation is only applied to the "intermediate" hidden layer.
+      # Quote from the paper: This consists of two linear transformations 
+      # with a ReLU activation in between.
+
       with tf.variable_scope("intermediate"):
         intermediate_output = tf.layers.dense(
             attention_output,
