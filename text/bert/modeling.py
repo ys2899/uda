@@ -756,9 +756,6 @@ def attention_layer(from_tensor,
 
   # `context_layer` = [B, F, N, H]
   context_layer = tf.transpose(context_layer, [0, 2, 1, 3])
-
-  pdb.set_trace()
-
   if do_return_2d_tensor:
     # `context_layer` = [B*F, N*V]
     context_layer = tf.reshape(
@@ -866,6 +863,7 @@ def transformer_model(input_tensor,
               batch_size=batch_size,
               from_seq_length=seq_length,
               to_seq_length=seq_length)
+          pdb.set_trace()
           attention_heads.append(attention_head)
 
         attention_output = None
