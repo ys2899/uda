@@ -277,6 +277,7 @@ def main(_):
     eval_steps = int(eval_size / FLAGS.eval_batch_size)
 
   if FLAGS.do_train and FLAGS.do_eval:
+    pdb.set_trace()
     tf.logging.info("***** Running training & evaluation *****")
     tf.logging.info("  Supervised batch size = %d", FLAGS.train_batch_size)
     tf.logging.info("  Unsupervised batch size = %d",

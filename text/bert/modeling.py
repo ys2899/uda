@@ -197,7 +197,7 @@ def bert_attention(config,
           initializer_range=config.initializer_range,
           do_return_all_layers=True)
       print('These are all encoder layers used in this construction.')
-      pdb.set_trace()
+      # pdb.set_trace()
     sequence_output = all_encoder_layers[-1]
 
     return sequence_output
@@ -835,7 +835,6 @@ def transformer_model(input_tensor,
   batch_size = input_shape[0]
   seq_length = input_shape[1]
   input_width = input_shape[2]
-
 
 
   # The Transformer performs sum residuals on all layers so the input needs
