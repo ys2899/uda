@@ -221,6 +221,8 @@ def bert_pooler(config,
     with tf.variable_scope("pooler"):
       # We "pool" the model by simply taking the hidden state corresponding
       # to the first token. We assume that this has been pre-trained
+      # Because this is bidirectional, so we should not care;
+      
       clas_rep = tf.squeeze(sequence_output[:, 0:1, :], axis=1)
 
       pooled_output = tf.layers.dense(
