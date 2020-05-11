@@ -267,6 +267,9 @@ def bert_model(config,
       embedding_output,
       scope)
 
+  ## I want to know here the outputform of sequence_output and whether we need
+  ## to use 
+
   if output_type == "sequence":
     return sequence_output
 
