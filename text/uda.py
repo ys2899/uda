@@ -342,9 +342,7 @@ def model_fn_builder(
 
     ##### Construct TPU Estimator Spec based on the specific mode
     output_spec = None
-
-    pdb.set_trace()
-
+    # pdb.set_trace()
     if mode == tf.estimator.ModeKeys.TRAIN:
       ## Create optimizer for training
       train_op, curr_lr = optimization.create_optimizer(

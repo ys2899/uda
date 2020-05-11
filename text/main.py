@@ -277,7 +277,6 @@ def main(_):
     eval_steps = int(eval_size / FLAGS.eval_batch_size)
 
   if FLAGS.do_train and FLAGS.do_eval:
-    pdb.set_trace()
     tf.logging.info("***** Running training & evaluation *****")
     tf.logging.info("  Supervised batch size = %d", FLAGS.train_batch_size)
     tf.logging.info("  Unsupervised batch size = %d",
@@ -298,6 +297,7 @@ def main(_):
         tf.logging.info("  %s = %s", key, str(dev_result[key]))
         dev_result[key] = dev_result[key].item()
       best_acc = max(best_acc, dev_result["eval_classify_accuracy"])
+      pdb.set_trace()
     tf.logging.info("***** Final evaluation result *****")
     tf.logging.info("Best acc: {:.3f}\n\n".format(best_acc))
   elif FLAGS.do_train:
