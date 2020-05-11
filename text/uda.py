@@ -288,7 +288,7 @@ def model_fn_builder(
          num_train_steps=num_train_steps,
          )
 
-      pdb.set_trace()
+    pdb.set_trace()
     ##### Aggregate losses into total_loss
     metric_dict = {}
 
