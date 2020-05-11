@@ -222,7 +222,7 @@ def bert_pooler(config,
       # We "pool" the model by simply taking the hidden state corresponding
       # to the first token. We assume that this has been pre-trained
       # Because this is bidirectional, so we should not care;
-      
+
       clas_rep = tf.squeeze(sequence_output[:, 0:1, :], axis=1)
 
       pooled_output = tf.layers.dense(
@@ -269,8 +269,6 @@ def bert_model(config,
       embedding_output,
       scope)
 
-  pdb.set_trace()
-
   ## I want to know here the outputform of sequence_output and whether we need
   ## to use pooled or not and what this is.
 
@@ -284,6 +282,7 @@ def bert_model(config,
       scope)
 
   if output_type == "pooled":
+    print('We are using the pooled one')
     return pooled_output
 
 
