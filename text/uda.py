@@ -113,7 +113,8 @@ def create_model(
       use_one_hot_embeddings=use_one_hot_embeddings)
 
   # Input mask is still a problem.
-
+  # It is not a prblm anymore.
+  
   pdb.set_trace()
   
   clas_logits = hidden_to_logits(
@@ -289,6 +290,7 @@ def model_fn_builder(
          num_train_steps=num_train_steps,
          )
 
+     pdb.set_trace()
     ##### Aggregate losses into total_loss
     metric_dict = {}
 
