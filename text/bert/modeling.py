@@ -267,8 +267,10 @@ def bert_model(config,
       embedding_output,
       scope)
 
+  pdb.set_trace()
+
   ## I want to know here the outputform of sequence_output and whether we need
-  ## to use 
+  ## to use pooled or not and what this is.
 
   if output_type == "sequence":
     return sequence_output
