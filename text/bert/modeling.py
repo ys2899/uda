@@ -196,6 +196,7 @@ def bert_attention(config,
           attention_probs_dropout_prob=config.attention_probs_dropout_prob,
           initializer_range=config.initializer_range,
           do_return_all_layers=True)
+      print('These are all encoder layers used in this construction.')
       pdb.set_trace()
     sequence_output = all_encoder_layers[-1]
 

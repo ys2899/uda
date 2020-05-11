@@ -113,6 +113,8 @@ def create_model(
       use_one_hot_embeddings=use_one_hot_embeddings)
 
   # Input mask is still a problem.
+
+  pdb.set_trace()
   
   clas_logits = hidden_to_logits(
       hidden=pooled,
