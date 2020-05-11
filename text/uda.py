@@ -115,8 +115,6 @@ def create_model(
   # Input mask is still a problem.
   # It is not a prblm anymore.
   
-  pdb.set_trace()
-  
   clas_logits = hidden_to_logits(
       hidden=pooled,
       is_training=is_training,
@@ -290,7 +288,7 @@ def model_fn_builder(
          num_train_steps=num_train_steps,
          )
 
-     pdb.set_trace()
+      pdb.set_trace()
     ##### Aggregate losses into total_loss
     metric_dict = {}
 
