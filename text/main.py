@@ -288,7 +288,7 @@ def main(_):
     for _ in range(0, FLAGS.num_train_steps, save_checkpoints_steps):
       tf.logging.info("*** Running training ***")
       pdb.set_trace()
-      save_checkpoints_steps = save_checkpoints_steps/100
+      save_checkpoints_steps = save_checkpoints_steps/15
       estimator.train(
           input_fn=train_input_fn,
           steps=save_checkpoints_steps)
