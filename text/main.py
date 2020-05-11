@@ -287,6 +287,7 @@ def main(_):
     best_acc = 0
     for _ in range(0, FLAGS.num_train_steps, save_checkpoints_steps):
       tf.logging.info("*** Running training ***")
+      pdb.set_trace()
       estimator.train(
           input_fn=train_input_fn,
           steps=save_checkpoints_steps)
@@ -297,7 +298,7 @@ def main(_):
         tf.logging.info("  %s = %s", key, str(dev_result[key]))
         dev_result[key] = dev_result[key].item()
       best_acc = max(best_acc, dev_result["eval_classify_accuracy"])
-      pdb.set_trace()
+
     tf.logging.info("***** Final evaluation result *****")
     tf.logging.info("Best acc: {:.3f}\n\n".format(best_acc))
   elif FLAGS.do_train:
