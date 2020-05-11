@@ -288,7 +288,7 @@ def model_fn_builder(
          num_train_steps=num_train_steps,
          )
 
-    pdb.set_trace()
+    # pdb.set_trace()
     ##### Aggregate losses into total_loss
     metric_dict = {}
 
@@ -342,6 +342,9 @@ def model_fn_builder(
 
     ##### Construct TPU Estimator Spec based on the specific mode
     output_spec = None
+
+    pdb.set_trace()
+
     if mode == tf.estimator.ModeKeys.TRAIN:
       ## Create optimizer for training
       train_op, curr_lr = optimization.create_optimizer(
