@@ -183,10 +183,10 @@ def convert_examples_to_features(
   if aug_ops:
     tf.logging.info("building vocab")
     word_vocab = build_vocab(examples)
+    pdb.set_trace()
     examples = word_level_augment.word_level_augment(
         examples, aug_ops, word_vocab, data_stats
     )
-
   for (ex_index, example) in enumerate(examples):
     if ex_index % 10000 == 0:
       tf.logging.info("processing {:d}".format(ex_index))
