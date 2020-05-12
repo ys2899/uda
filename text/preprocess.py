@@ -187,6 +187,8 @@ def convert_examples_to_features(
   #       examples, aug_ops, word_vocab, data_stats
   #   )
 
+  pdb.set_trace()
+
   for (ex_index, example) in enumerate(examples):
     if ex_index % 10000 == 0:
       tf.logging.info("processing {:d}".format(ex_index))
