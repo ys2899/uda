@@ -114,10 +114,7 @@ class IMDbProcessor(DataProcessor):
 
   def get_train_examples(self, raw_data_dir):
     """See base class."""
-    pdb.set_trace()
-    return self._create_examples(
-        self._read_tsv(os.path.join(raw_data_dir, "train.csv"),
-                       quotechar='"'), "train")
+    return self._create_examples(self._read_tsv(os.path.join(raw_data_dir, "train.csv"), quotechar='"'), "train")
 
   def get_dev_examples(self, raw_data_dir):
     """See base class."""
@@ -142,6 +139,7 @@ class IMDbProcessor(DataProcessor):
 
   def _create_examples(self, lines, set_type, skip_unsup=True):
     """Creates examples for the training and dev sets."""
+    pdb.set_trace()
     examples = []
     for (i, line) in enumerate(lines):
       if i == 0:
