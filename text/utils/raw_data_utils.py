@@ -23,8 +23,10 @@ import csv
 import os
 
 from absl import flags
-
 import tensorflow as tf
+
+import pdb
+
 
 FLAGS = flags.FLAGS
 
@@ -34,7 +36,6 @@ class InputExample(object):
 
   def __init__(self, guid, text_a, text_b=None, label=None):
     """Constructs a InputExample.
-
     Args:
       guid: Unique id for the example.
       text_a: string. The untokenized text of the first sequence. For single
@@ -168,6 +169,7 @@ class TextClassProcessor(DataProcessor):
 
   def get_train_examples(self, raw_data_dir):
     """See base class."""
+    pdb.set_trace()
     examples = self._create_examples(
         self._read_tsv(os.path.join(raw_data_dir, "train.csv"),
                        quotechar="\"",
