@@ -127,7 +127,6 @@ def build_vocab(examples):
       add_to_vocab(examples[i].word_list_b)
   return vocab
 
-
 def get_data_stats(data_stats_dir, sub_set, sup_size, replicas, examples):
   data_stats_dir = "{}/{}".format(data_stats_dir, sub_set)
   keys = ["tf_idf", "idf"]
@@ -263,6 +262,11 @@ def convert_examples_to_features(
     assert len(input_type_ids) == seq_length
 
     label_id = label_map[example.label]
+
+
+    pdb.set_trace()
+
+
     if ex_index < 1:
       tf.logging.info("*** Example ***")
       tf.logging.info("guid: %s" % (example.guid))
